@@ -6,10 +6,16 @@
 }
 
 body {
-    background-color: #f4f1ea;
+    /* Un color crema/hueso elegante */
+    background-color: #fdfaf0; 
+    
+    /* Esta textura simula el grano del papel o la tela del lienzo */
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    
     display: flex;
     justify-content: center;
     padding: 20px;
+    min-height: 100vh; /* Para que el fondo cubra toda la pantalla */
 }
 
 main {
@@ -60,20 +66,33 @@ button:hover {
 #cantidad-colores {
     padding: 10px 15px;
     font-size: 1.1rem;
-    border: 2px solid #8d6e63;
+    font-weight: bold;
+    
+    /* Color madera similar a la paleta */
+    background: linear-gradient(to bottom, #d2b48c 0%, #c1a17b 100%); 
+    color: #5d4037; /* Marrón oscuro para el texto */
+    
+    /* El mismo borde que la madera de la paleta */
+    border: 3px solid #a67c52; 
     border-radius: 8px;
-    background-color: #fff;
-    color: #5d4037;
+    
     cursor: pointer;
     outline: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
 
 #cantidad-colores:hover {
+    background: linear-gradient(to bottom, #c1a17b 0%, #d2b48c 100%); /* Invierte el brillo */
     border-color: #5d4037;
-    box-shadow: 0 0 8px rgba(93, 64, 55, 0.2);
+    transform: translateY(-2px); /* Un pequeño salto de interacción */
 }
 
+/* Para que las opciones de adentro no se vean raras */
+#cantidad-colores option {
+    background-color: #d2b48c;
+    color: #5d4037;
+}
 /* PALETA */
 #paleta-madera {
     background-color: #d2b48c;

@@ -27,7 +27,7 @@ function renderizarPaleta() {
 
         mancha.style.width = '70px';
         mancha.style.height = '70px';
-        mancha.style.backgroundColor = nuevoColor;
+        mancha.style.background = `radial-gradient(circle at 30% 30%, white 0%, ${nuevoColor} 20%, ${nuevoColor} 100%)`;
         mancha.style.cursor = 'pointer';
         mancha.style.borderRadius = '40% 60% 70% 30% / 40% 40% 60% 50%';
         mancha.style.transition = 'all 0.2s';
