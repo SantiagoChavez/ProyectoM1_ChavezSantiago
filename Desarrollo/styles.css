@@ -46,6 +46,34 @@ button:hover {
     background-color: #5d4037;
 }
 
+.titulo-control {
+    display: block;
+    font-size: 1.5rem; /* Bien grande */
+    font-weight: bold;
+    color: #5d4037;
+    margin-bottom: 15px;
+    text-transform: uppercase; /* Le da un toque más serio */
+    letter-spacing: 1px;
+}
+
+/* Estilo para el selector (el menú desplegable) */
+#cantidad-colores {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border: 2px solid #8d6e63;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #5d4037;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#cantidad-colores:hover {
+    border-color: #5d4037;
+    box-shadow: 0 0 8px rgba(93, 64, 55, 0.2);
+}
+
 /* PALETA */
 #paleta-madera {
     background-color: #d2b48c;
