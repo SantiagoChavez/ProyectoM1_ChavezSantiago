@@ -6,16 +6,12 @@
 }
 
 body {
-    /* Un color crema/hueso elegante */
-    background-color: #fdfaf0; 
-    
-    /* Esta textura simula el grano del papel o la tela del lienzo */
+    background-color: #fdfaf0;
     background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-    
     display: flex;
     justify-content: center;
     padding: 20px;
-    min-height: 100vh; /* Para que el fondo cubra toda la pantalla */
+    min-height: 100vh;
 }
 
 main {
@@ -29,6 +25,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* 2. Controles y Botones */
 #configuracion {
     background: white;
     padding: 20px;
@@ -37,63 +34,87 @@ h1 {
     margin-bottom: 30px;
 }
 
-button {
-    background-color: #8d6e63;
+.titulo-control {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5d4037;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Botón Generar (Verde) */
+#btn-generar {
+    background-color: #4e995b;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
 }
 
-button:hover {
-    background-color: #5d4037;
+#btn-generar:hover {
+    background-color: #3d7a48;
+    /* Verde más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.titulo-control {
-    display: block;
-    font-size: 1.5rem; /* Bien grande */
+/* Botón Limpiar (Madera) - Sin !important */
+#btn-limpiar {
+    background-color: #a67c52;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
     font-weight: bold;
-    color: #5d4037;
-    margin-bottom: 15px;
-    text-transform: uppercase; /* Le da un toque más serio */
-    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
 }
 
-/* Estilo para el selector (el menú desplegable) */
+#btn-limpiar:hover {
+    background-color: #8d6e63;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* 3. Selector de Madera */
 #cantidad-colores {
     padding: 10px 15px;
     font-size: 1.1rem;
     font-weight: bold;
-    
-    /* Color madera similar a la paleta */
-    background: linear-gradient(to bottom, #d2b48c 0%, #c1a17b 100%); 
-    color: #5d4037; /* Marrón oscuro para el texto */
-    
-    /* El mismo borde que la madera de la paleta */
-    border: 3px solid #a67c52; 
+    background: linear-gradient(to bottom, #d2b48c 0%, #c1a17b 100%);
+    color: #5d4037;
+    border: 3px solid #a67c52;
     border-radius: 8px;
-    
     cursor: pointer;
     outline: none;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
 #cantidad-colores:hover {
-    background: linear-gradient(to bottom, #c1a17b 0%, #d2b48c 100%); /* Invierte el brillo */
+    background: linear-gradient(to bottom, #c1a17b 0%, #d2b48c 100%);
     border-color: #5d4037;
-    transform: translateY(-2px); /* Un pequeño salto de interacción */
+    transform: translateY(-2px);
 }
 
-/* Para que las opciones de adentro no se vean raras */
 #cantidad-colores option {
     background-color: #d2b48c;
     color: #5d4037;
 }
-/* PALETA */
+
+/* 4. Paleta y Pincel */
 #paleta-madera {
     background-color: #d2b48c;
     width: 740px;
@@ -125,7 +146,6 @@ button:hover {
     border: 5px solid #a67c52;
 }
 
-/* PINCEL */
 #pincel {
     position: fixed;
     left: 50%;
@@ -159,7 +179,7 @@ button:hover {
     background-image: repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.1) 3px);
 }
 
-/* TOAST */
+/* 5. Toast Notificaciones */
 #toast {
     visibility: hidden;
     min-width: 250px;

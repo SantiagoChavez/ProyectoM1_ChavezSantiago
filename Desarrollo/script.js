@@ -27,20 +27,30 @@ function renderizarPaleta() {
 
         mancha.style.width = '70px';
         mancha.style.height = '70px';
-        mancha.style.background = `radial-gradient(circle at 30% 30%, white 0%, ${nuevoColor} 20%, ${nuevoColor} 100%)`;
+
+        // --- BRILLO SUAVE (Cambiamos white por un brillo translúcido) ---
+        mancha.style.background = nuevoColor;
+        mancha.style.boxShadow = 'inset 4px 4px 10px rgba(0,0,0,0.2), 2px 2px 5px rgba(0,0,0,0.1)';
+
         mancha.style.cursor = 'pointer';
         mancha.style.borderRadius = '40% 60% 70% 30% / 40% 40% 60% 50%';
         mancha.style.transition = 'all 0.2s';
         mancha.style.boxShadow = 'inset 2px 2px 5px rgba(0,0,0,0.3)';
+        mancha.style.zIndex = '10';
 
-        // Tooltip: Esperamos un milisegundo a que el DOM asigne el color
+        // --- CORRECCIÓN DEL HEXA (Tooltip) ---
+        // Guardamos el color en un atributo propio para no perderlo con el degradado
+        mancha.dataset.colorOriginal = nuevoColor;
+
+        // El navegador necesita un respiro para procesar el HSL a RGB
         setTimeout(() => {
-            const hex = rgbToHex(mancha.style.backgroundColor);
+            // Obtenemos el color real que el navegador le puso al fondo
+            const hex = rgbToHex(window.getComputedStyle(mancha).backgroundColor);
             mancha.title = `Copiar color: ${hex}`;
         }, 10);
 
         mancha.addEventListener('click', () => {
-            const hex = rgbToHex(mancha.style.backgroundColor);
+            const hex = rgbToHex(window.getComputedStyle(mancha).backgroundColor);
             navigator.clipboard.writeText(hex).then(() => {
                 mostrarToast(`¡Color ${hex} copiado!`);
                 mancha.style.transform = 'scale(0.8)';
