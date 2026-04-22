@@ -1,0 +1,89 @@
+/* Reset básico para que se vea igual en todos los navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f1ea; /* Un color crema tipo lienzo */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+main {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+h1 {
+    color: #5d4037;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los controles */
+#configuracion {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #8d6e63;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #5d4037;
+}
+
+/* LA PALETA DE MADERA (Tu idea) */
+#paleta-madera {
+    background-color: #d2b48c; /* Color madera más clarito como tu imagen */
+    width: 100%;
+    max-width: 550px;
+    height: 380px;
+    margin: 0 auto;
+    position: relative;
+    
+    /* 1. Forma de "riñón" usando border-radius complejo */
+    border-radius: 43% 57% 40% 60% / 40% 41% 59% 60%;
+    
+    /* 2. La muesca lateral (el recorte) se simula con un degradado o máscara, 
+       pero para no complicarte, usemos una sombra interna fuerte */
+    border: 12px solid #a67c52;
+    box-shadow: inset 20px 0 40px rgba(0,0,0,0.1), 10px 10px 25px rgba(0,0,0,0.3);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+/* 3. EL AGUJERO DEL PULGAR (Usamos un pseudo-elemento ::before) */
+#paleta-madera::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background-color: #f4f1ea; /* Mismo color que el fondo del body para que parezca un hueco */
+    border-radius: 50%;
+    top: 50px;
+    right: 60px;
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+    border: 4px solid #a67c52;
+    z-index: 10;
+}
