@@ -22,6 +22,7 @@ function renderizarPaleta() {
 
         // Creamos la "mancha" de pintura
         const mancha = document.createElement('div');
+        mancha.style.zIndex = '1'; 
         
         // Estilos para que parezca una mancha de verdad
         mancha.style.width = '70px';
