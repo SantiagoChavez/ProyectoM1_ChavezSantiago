@@ -50,39 +50,71 @@ button:hover {
 
 /* LA PALETA DE MADERA (Tu idea) */
 #paleta-madera {
-    background-color: #d2b48c; /* Color madera más clarito como tu imagen */
+    background-color: #d2b48c;
     width: 100%;
     max-width: 550px;
     height: 380px;
     margin: 0 auto;
     position: relative;
     
-    /* 1. Forma de "riñón" usando border-radius complejo */
-    border-radius: 43% 57% 40% 60% / 40% 41% 59% 60%;
+    /* ESTA LÍNEA ES CLAVE: Hace que el padding no rompa el tamaño */
+    box-sizing: border-box; 
     
-    /* 2. La muesca lateral (el recorte) se simula con un degradado o máscara, 
-       pero para no complicarte, usemos una sombra interna fuerte */
+    border-radius: 43% 57% 40% 60% / 40% 41% 59% 60%;
     border: 12px solid #a67c52;
     box-shadow: inset 20px 0 40px rgba(0,0,0,0.1), 10px 10px 25px rgba(0,0,0,0.3);
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 50px;
+    justify-content: space-between; 
+    align-content: space-between;
+
+    /* Mantenemos el bloqueo a la derecha */
+    padding: 80px 160px 80px 60px; 
+    gap: 10px;
 }
 
-/* 3. EL AGUJERO DEL PULGAR (Usamos un pseudo-elemento ::before) */
+#paleta-madera {
+    background-color: #d2b48c;
+    width: 100%;
+    max-width: 660px;
+    height: 450px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box; 
+    border-radius: 43% 57% 40% 60% / 40% 41% 59% 60%;
+    border: 12px solid #a67c52;
+    box-shadow: inset 20px 0 40px rgba(0,0,0,0.1), 10px 10px 25px rgba(0,0,0,0.3);
+
+    display: grid;
+    /* Tres columnas: dos fijas de 80px y una flexible para el resto */
+    grid-template-columns: 80px 80px 1fr; 
+    grid-template-rows: repeat(3, 1fr);
+    
+    /* ALINEACIÓN: Todo a la izquierda y al centro vertical */
+    justify-content: start; 
+    align-items: center;
+
+    /* Espaciado interno para que no toquen los bordes marrones */
+    padding: 70px 0 80px 130px; 
+    
+    /* Espacio parejo entre manchas */
+    gap: 30px 45px; 
+}
+
 #paleta-madera::before {
     content: '';
     position: absolute;
     width: 50px;
     height: 70px;
-    background-color: #f4f1ea; /* Mismo color que el fondo del body para que parezca un hueco */
+    background-color: #f4f1ea; 
     border-radius: 50%;
-    top: 50px;
-    right: 60px;
+    
+    /* Lo centramos un poco mejor dentro de la zona del padding derecho */
+    top: 50%; 
+    transform: translateY(-50%); /* Truco para que quede siempre centrado verticalmente */
+    right: 50px; 
+    
     box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
     border: 4px solid #a67c52;
     z-index: 10;
