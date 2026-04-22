@@ -1,4 +1,3 @@
-/* Reset básico para que se vea igual en todos los navegadores */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +6,7 @@
 }
 
 body {
-    background-color: #f4f1ea; /* Un color crema tipo lienzo */
+    background-color: #f4f1ea;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -16,7 +15,7 @@ body {
 main {
     text-align: center;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 h1 {
@@ -24,12 +23,11 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Estilos para los controles */
 #configuracion {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
 }
 
@@ -48,74 +46,113 @@ button:hover {
     background-color: #5d4037;
 }
 
-/* LA PALETA DE MADERA (Tu idea) */
+/* PALETA */
 #paleta-madera {
     background-color: #d2b48c;
-    width: 100%;
-    max-width: 550px;
-    height: 380px;
+    width: 740px;
+    height: 480px;
     margin: 0 auto;
     position: relative;
-    
-    /* ESTA LÍNEA ES CLAVE: Hace que el padding no rompa el tamaño */
-    box-sizing: border-box; 
-    
     border-radius: 43% 57% 40% 60% / 40% 41% 59% 60%;
     border: 12px solid #a67c52;
-    box-shadow: inset 20px 0 40px rgba(0,0,0,0.1), 10px 10px 25px rgba(0,0,0,0.3);
-
+    box-shadow: inset 20px 0 40px rgba(0, 0, 0, 0.1), 10px 10px 25px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
-    align-content: space-between;
-
-    /* Mantenemos el bloqueo a la derecha */
-    padding: 80px 160px 80px 60px; 
-    gap: 10px;
-}
-
-#paleta-madera {
-    background-color: #d2b48c;
-    width: 100%;
-    max-width: 660px;
-    height: 450px;
-    margin: 0 auto;
-    position: relative;
-    box-sizing: border-box; 
-    border-radius: 43% 57% 40% 60% / 40% 41% 59% 60%;
-    border: 12px solid #a67c52;
-    box-shadow: inset 20px 0 40px rgba(0,0,0,0.1), 10px 10px 25px rgba(0,0,0,0.3);
-
-    display: grid;
-    /* Tres columnas: dos fijas de 80px y una flexible para el resto */
-    grid-template-columns: 80px 80px 1fr; 
-    grid-template-rows: repeat(3, 1fr);
-    
-    /* ALINEACIÓN: Todo a la izquierda y al centro vertical */
-    justify-content: start; 
-    align-items: center;
-
-    /* Espaciado interno para que no toquen los bordes marrones */
-    padding: 70px 0 80px 130px; 
-    
-    /* Espacio parejo entre manchas */
-    gap: 30px 45px; 
+    justify-content: flex-start;
+    align-content: center;
+    padding: 70px 180px 70px 110px;
+    gap: 20px 35px;
 }
 
 #paleta-madera::before {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 70px;
-    background-color: #f4f1ea; 
+    width: 60px;
+    height: 85px;
+    background-color: #f4f1ea;
     border-radius: 50%;
-    
-    /* Lo centramos un poco mejor dentro de la zona del padding derecho */
-    top: 50%; 
-    transform: translateY(-50%); /* Truco para que quede siempre centrado verticalmente */
-    right: 50px; 
-    
-    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
-    border: 4px solid #a67c52;
-    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 90px;
+    box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.2);
+    border: 5px solid #a67c52;
+}
+
+/* PINCEL */
+#pincel {
+    position: fixed;
+    left: 50%;
+    margin-left: 380px;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mango {
+    width: 15px;
+    height: 200px;
+    background: linear-gradient(to right, #5d4037, #795548);
+    border-radius: 10px 10px 0 0;
+}
+
+.virola {
+    width: 22px;
+    height: 30px;
+    background: linear-gradient(to right, #bdbdbd, #eeeeee, #9e9e9e);
+    border-radius: 3px;
+}
+
+.cerdas {
+    width: 25px;
+    height: 45px;
+    background-color: #fdd835;
+    border-radius: 0 0 12px 12px;
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.1) 3px);
+}
+
+/* TOAST */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #5d4037;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 2000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+
+#toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 1.5s;
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }

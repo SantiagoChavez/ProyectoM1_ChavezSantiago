@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Paleta de Pintor | Santiago Chavez</title>
- <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
+<body>
     <main>
         <h1>Paleta de Colores Aleatoria</h1>
 
@@ -18,22 +19,31 @@
                     <option value="6">6 Colores</option>
                     <option value="8">8 Colores</option>
                     <option value="9">9 Colores</option>
+                    <option value="12">12 Colores</option>
                 </select>
             </div>
 
-            <div class="control-group">
+            <div class="control-group" style="margin-top: 15px;">
                 <button id="btn-generar">Generar Paleta Nueva</button>
+                <button id="btn-limpiar" style="background-color: #a67c52; margin-left: 10px;">Limpiar Lienzo</button>
             </div>
         </section>
 
         <section id="area-pintor">
             <div id="paleta-madera">
-                </div>
+            </div>
         </section>
     </main>
 
-    <div id="toast" class="hidden" role="status"></div>
+    <div id="pincel">
+        <div class="mango"></div>
+        <div class="virola"></div>
+        <div class="cerdas"></div>
+    </div>
+
+    <div id="toast"></div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
